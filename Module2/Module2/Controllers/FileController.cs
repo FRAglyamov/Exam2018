@@ -28,6 +28,7 @@ namespace Module2.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.CurrentUser = _userManager.GetUserId(User);
             return View(_context.Files.ToList());
         }
         public IActionResult Share()
@@ -42,6 +43,10 @@ namespace Module2.Controllers
                 var file = _context.Files.Where(x => x.Id.ToString() == id).FirstOrDefault();
                 if (file.UserId == _userManager.GetUserId(User))
                 {
+                    if(file.SharedUserId==null)
+                    {
+                        file.SharedUserId = new List<ApplicationUser>();
+                    }
                     file.SharedUserId.Add(user);
                     _context.SaveChanges();
                 }

@@ -2,6 +2,7 @@
 @{
     ViewData["Title"] = "Добавление файла";
 }
+
 <h3>Выберите файл для загрузки</h3>
 <form asp-action="AddFile" asp-controller="File" method="post" enctype="multipart/form-data">
     <input type="file" name="uploadedFile" /><br>
@@ -18,9 +19,17 @@
                 <br>
                 <img src="@Url.Content(f.Path)" width="500">
                 <br>
-                <a asp-action="Share" asp-route-id="@f.Id">Share</a>
+                @if(ViewBag.CurrentUser == f.UserId)
+                {
+                    <a asp-action="Share" asp-route-id="@f.Id">Share</a>
+
+                }
                 <br>
-                <a asp-action="Download" asp-route-id="@f.Id">Download</a>
+                @if(ViewBag.CurrentUser == f.UserId)
+                {
+                    <a asp-action="Download" asp-route-id="@f.Id">Download</a>
+
+                }
             </div>
             <div class="panel-body">Shared Users:</div>
         </div>
