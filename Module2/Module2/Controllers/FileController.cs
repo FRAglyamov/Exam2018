@@ -40,8 +40,11 @@ namespace Module2.Controllers
             if (user != null)
             {
                 var file = _context.Files.Where(x => x.Id.ToString() == id).FirstOrDefault();
-                file.SharedUserId.Add(user);
-                _context.SaveChanges();
+                if (file.UserId == _userManager.GetUserId(User))
+                {
+                    file.SharedUserId.Add(user);
+                    _context.SaveChanges();
+                }
             }
             return RedirectToAction("Index", "Home");
         }
