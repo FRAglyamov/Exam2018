@@ -4,9 +4,26 @@
 <h2>Создание пользователя:</h2>
 <form method="post" asp-controller="Order" asp-action="AddOrder">
     <div class="form-group">
-        <label for="client_name">Название:</label>
-        <input type="text" class="form-control" name="client_name">
+        <label for="inventory_id">InventoryId:</label>
+        <input type="number" class="form-control" name="inventory_id">
     </div>
+    <div class="form-group">
+        <label for="dicsount">Скидка:</label>
+        <input type="number" class="form-control" name="dicsount">
+    </div>
+    <div class="form-group">
+        <label for="time_start">Время начала:</label>
+        <input type="date" class="form-control" name="time_start">
+    </div>
+    <div class="form-group">
+        <label for="time">Время:</label>
+        <input type="number" class="form-control" name="time">
+    </div>
+    <div class="form-group">
+        <label for="total_cost">Конечная стоимость:</label>
+        <input type="number" class="form-control" name="total_cost">
+    </div>
+
 
     <div>
         <button type="submit" class="btn btn-success">Добавить</button>
