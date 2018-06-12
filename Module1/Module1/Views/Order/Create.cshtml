@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Create";
+}
+<h2>Создание пользователя:</h2>
+<form method="post" asp-controller="Order" asp-action="AddOrder">
+    <div class="form-group">
+        <label for="client_name">Название:</label>
+        <input type="text" class="form-control" name="client_name">
+    </div>
+
+    <div>
+        <button type="submit" class="btn btn-success">Добавить</button>
+    </div>
+</form>
+

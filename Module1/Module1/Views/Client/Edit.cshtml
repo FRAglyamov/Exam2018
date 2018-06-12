@@ -1,0 +1,29 @@
+﻿@model Module1.Models.Client
+@{
+    ViewBag.Title = "Редактирование пользователя";
+}
+<form method="post" asp-controller="Client" asp-action="EditClient" asp-route-id="@Model.Id">
+    <div class="form-group">
+        <label for="client_name">Имя:</label>
+        <input type="text" class="form-control" name="client_name" value="@Model.Name">
+    </div>
+    <div class="form-group">
+        <label for="client_surname">Фамилия:</label>
+        <input type="text" class="form-control" name="client_surname" value="@Model.Surname">
+    </div>
+    <div class="form-group">
+        <label for="client_date">Дата рождения:</label>
+        <input type="date" class="form-control" name="client_date" value="@Model.Birthdate">
+    </div>
+    <div class="form-group">
+        <label for="client_serialnumber">Номер паспорта:</label>
+        <input type="text" class="form-control" name="client_serialnumber" value="@Model.SerialNumber">
+    </div>
+    <div class="form-group">
+        <label for="client_registration">Прописка:</label>
+        <input type="text" class="form-control" name="client_registration" value="@Model.Registration">
+    </div>
+    <div>
+        <button type="submit" class="btn btn-success">Отправить!</button>
+    </div>
+</form>

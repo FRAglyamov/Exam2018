@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Create";
+}
+<h2>Создание пользователя:</h2>
+<form method="post" asp-controller="Client" asp-action="AddClient">
+    <div class="form-group">
+        <label for="client_name">Имя:</label>
+        <input type="text" class="form-control" name="client_name">
+    </div>
+
+    <div class="form-group">
+        <label for="client_surname">Фамилия:</label>
+        <input type="text" class="form-control" name="client_surname">
+    </div>
+
+    <div class="form-group">
+        <label for="client_serialnumber">Номер паспорта:</label>
+        <input type="number" class="form-control" name="client_serialnumber">
+    </div>
+
+    <div class="form-group">
+        <label for="client_date">Дата рождения:</label>
+        <input type="date" class="form-control" name="client_date">
+    </div>
+
+    <div class="form-group">
+        <label for="client_registration">Прописка:</label>
+        <input type="text" class="form-control" name="client_registation">
+    </div>
+
+    <div>
+        <button type="submit" class="btn btn-success">Добавить</button>
+    </div>
+</form>
+

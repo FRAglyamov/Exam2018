@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Module1.Models.ClientCard>
+@{
+    ViewData["Title"] = "Index";
+}
+<h2>Управление данными клиентов</h2>
+
+@{
+    <form method="post" asp-controller="Client" asp-action="Create">
+        <div>
+            <button type="submit" class="btn btn-success">Добавить клиента</button>
+        </div>
+    </form>
+
+    <br>
+    <h2>Список клиентов:</h2>
+    if (Model.Count() == 0)
+    {
+        <h3>Клиентов нет</h3>
+    }
+    else
+    {
+        foreach (var item in Model)
+        {
+            <div class="container">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        CardId: @item.ClientId |
+                        <a asp-controller="Client" asp-action="Edit" asp-route-id="@item.ClientId">Клиент</a> |
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    </div>
+                </div>
+            </div>
+        }
+
+    }
+}
+

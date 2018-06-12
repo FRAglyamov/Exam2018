@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Module1.Models.Order>
+@{
+    ViewData["Title"] = "Index";
+}
+<h2>Управление заказами</h2>
+
+@{
+    <form method="post" asp-controller="Order" asp-action="Create">
+        <div>
+            <button type="submit" class="btn btn-success">Добавить заказ</button>
+        </div>
+    </form>
+
+    <br>
+    <h2>Список заказов:</h2>
+    if (Model.Count() == 0)
+    {
+        <h3>Заказов нет</h3>
+    }
+    else
+    {
+        foreach (var item in Model)
+        {
+            <div class="container">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        @item.Id
+                    </div>
+                    <div class="panel-body">
+                        @item.InventoryId
+                        @item.Dicsount
+                        @item.TimeStart
+                        @item.Time
+                        @item.TotalCost
+                    </div>
+                </div>
+            </div>
+        }
+
+    }
+}
+

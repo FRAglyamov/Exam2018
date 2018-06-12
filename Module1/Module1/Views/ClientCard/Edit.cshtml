@@ -1,0 +1,18 @@
+﻿@model Module1.Models.ClientCard
+@{
+    ViewBag.Title = "Редактирование карты";
+}
+
+<form method="post" asp-controller="ClientCard" asp-action="EditClientCard" asp-route-id="@Model.Id">
+    <div class="form-group">
+        <label for="client_id">ClientId:</label>
+        <input type="text" class="form-control" name="client_id" value="@Model.ClientId">
+    </div>
+    <div class="form-group">
+        <label for="order_id">OrderId:</label>
+        <input type="text" class="form-control" name="order_id" value="@Model.OrderId">
+    </div>
+    <div>
+        <button type="submit" class="btn btn-success">Отправить!</button>
+    </div>
+</form>

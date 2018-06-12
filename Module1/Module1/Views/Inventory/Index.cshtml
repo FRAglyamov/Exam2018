@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Module1.Models.Inventory>
+@{
+    ViewData["Title"] = "Index";
+}
+<h2>Управление инвентарем</h2>
+
+@{
+    <form method="post" asp-controller="Inventory" asp-action="Create">
+        <div>
+            <button type="submit" class="btn btn-success">Добавить инвентарь</button>
+        </div>
+    </form>
+
+    <br>
+    <h2>Список инвентаря:</h2>
+    if (Model.Count() == 0)
+    {
+        <h3>Инвентаря нет</h3>
+    }
+    else
+    {
+        foreach (var item in Model)
+        {
+            <div class="container">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        @item.Name |
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    </div>
+                    <div class="panel-body">
+                        Доступен?: @item.IsAvaliable
+                    </div>
+                </div>
+            </div>
+        }
+
+    }
+}
+
