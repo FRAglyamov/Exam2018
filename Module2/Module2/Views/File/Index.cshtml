@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Module2.Models.FileModel>
+@{
+    ViewData["Title"] = "Добавление файла";
+}
+<h3>Выберите файл для загрузки</h3>
+<form asp-action="AddFile" asp-controller="File" method="post" enctype="multipart/form-data">
+    <input type="file" name="uploadedFile" /><br>
+    <input type="submit" value="Загрузить" />
+</form>
+
+<h3>Все файлы</h3>
+@foreach (var f in Model)
+{
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                @f.Name
+                <br>
+                <img src="@Url.Content(f.Path)" width="500">
+                <br>
+                <a asp-action="Share" asp-route-id="@f.Id">Share</a>
+                <br>
+                <a asp-action="Download" asp-route-id="@f.Id">Download</a>
+            </div>
+            <div class="panel-body">Shared Users:</div>
+        </div>
+    </div>
+    <p></p>
+}
